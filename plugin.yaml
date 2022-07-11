@@ -44,10 +44,10 @@ inputs:
 computedInputs:   
   "pasta_configuracao_sqs": "src/main/java/{{inputs.pacote_configuracao_sqs | replace('.','/') | replace('-','')}}"
   "pasta_producer_sqs": "src/main/java/{{inputs.pacote_producer_sqs | replace('.','/') | replace('-','')}}"                       
-  "pacote_configuracao_sqs": "{{inputs.pacote_configuracao_sqs | replace('.','') | replace('-','')}}"
+  "pacote_configuracao_sqs": "{{inputs.pacote_configuracao_sqs | replace('-','')}}"
   "aws_config_class_name": "{{inputs.aws_config_class_name | replace('.','') | replace('-','')}}"
   "sqs_config_class_name": "{{inputs.sqs_config_class_name | replace('.','') | replace('-','')}}"
-  "pacote_producer_sqs": "{{inputs.pacote_producer_sqs | replace('.','') | replace('-','')}}"
+  "pacote_producer_sqs": "{{inputs.pacote_producer_sqs | replace('-','')}}"
   "sqs_produtor_class_name": "{{inputs.sqs_produtor_class_name | replace('.','') | replace('-','')}}"
 
 

@@ -6,7 +6,7 @@ import software.amazon.awssdk.services.sqs.SqsAsyncClient;
 
 @Service
 @RequiredArgsConstructor
-public class {{inputs.sqs_produtor_class_name | replace('.','') | replace('-','')}} {
+public class {{computed_inputs.sqs_produtor_class_name}} {
 
     private final SqsAsyncClient sqsAsyncClient;
 

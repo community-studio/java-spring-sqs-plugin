@@ -1,4 +1,4 @@
-package {{inputs.pacote_configuracao_sqs | replace('.','/') | replace('-','')}};
+package {{computed_inputs.pacote_configuracao_sqs}};
 
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Getter
 @Configuration
-public class {{inputs.aws_config_class_name | replace('.','') | replace('-','')}} {
+public class {{computed_inputs.aws_config_class_name}} {
 
     @Value(value = "${aws.region}")
     private String region;

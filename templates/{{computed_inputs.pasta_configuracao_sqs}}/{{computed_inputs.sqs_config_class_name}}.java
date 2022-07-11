@@ -1,4 +1,4 @@
-package {{inputs.pacote_configuracao_sqs | replace('.','/') | replace('-','')}};
+package {{computed_inputs.pacote_configuracao_sqs}};
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,11 +11,11 @@ import software.amazon.awssdk.services.sqs.SqsAsyncClient;
 import java.net.URI;
 
 @Configuration
-public class {{inputs.sqs_config_class_name | replace('.','') | replace('-','')}} {
+public class {{computed_inputs.sqs_config_class_name}} {
 
-    private final {{inputs.aws_config_class_name | replace('.','') | replace('-','')}} awsConfiguration;
+    private final {{computed_inputs.aws_config_class_name}} awsConfiguration;
 
-    public SqsConfiguration({{inputs.aws_config_class_name | replace('.','') | replace('-','')}} awsConfiguration) {
+    public SqsConfiguration({{computed_inputs.aws_config_class_name}} awsConfiguration) {
         this.awsConfiguration = awsConfiguration;
     }
 

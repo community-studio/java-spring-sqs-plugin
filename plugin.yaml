@@ -1,5 +1,5 @@
 name: java-spring-sqs-plugin
-description: Describe your plugin explaining its purpose
+description: AWS SQS plugin para projetos Java + Spring Boot
 display-name: java-spring-sqs-plugin
 picture: plugin.png
 category: backend # Ref: https://docs.stackspot.com/latest/docs/creators-guide/yaml/#category
@@ -15,17 +15,51 @@ technologies: # Ref: https://docs.stackspot.com/latest/docs/creators-guide/yaml/
 types:
   - app
 inputs:
-  - label: Input Example
+  - label: Versão da biblioteca software.amazon.awssdk:sqs
     type: text
-    name: example
-    default: any text
-  - label: Example of number
-    type: int
-    name: any_number
-    default: "10"
-  - label: Example of list
-    type: multiselect
-    name: any_list
-    items:
-      - item1
-      - item2
+    name: sqs_version
+    default: 2.16.18
+    required: true
+  - label: Pacote para classes de configuração. Ex - br.com.org.projeto.config
+    type: text
+    name: pacote_configuracao_sqs
+    required: true
+  - label: Nome da classe de configurações AWS
+    type: text
+    name: aws_config_class_name
+    default: AwsConfiguration
+  - label: Nome da classe de configurações SQS
+    type: text
+    name: sqs_config_class_name
+    default: SqsConfiguration
+  - label: Pacote para a classe producer. Ex - br.com.org.projeto.sqs
+    type: text
+    name: pacote_producer_sqs
+    required: true
+  - label: Nome da classe do Produtor SQS
+    type: text
+    name: sqs_produtor_class_name
+    default: SqsPublisher
+
+computedInputs:   
+  "pasta_configuracao_sqs": "src/main/java/{{inputs.pacote_configuracao_sqs | replace('.','/') | replace('-','')}}"
+  "pasta_producer_sqs": "src/main/java/{{inputs.pacote_producer_sqs | replace('.','/') | replace('-','')}}"                       
+  
+
+hooks:
+  - type: edit
+    trigger: after-render
+    path: pom.xml          
+    changes:
+      - search:
+          string: </dependencies>
+          insert-before:
+            snippet: snippets/lombok.xml
+          when:
+            not-exists-snippet: snippets/lombok.xml
+      - search:
+          string: </dependencies>
+          insert-before:
+            snippet: snippets/sqs.xml
+          when:
+            not-exists-snippet: snippets/sqs.xml

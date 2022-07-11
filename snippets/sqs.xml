@@ -1,0 +1,5 @@
+<dependency>
+    <groupId>software.amazon.awssdk</groupId>
+    <artifactId>sqs</artifactId>
+    <version>{{inputs.sqs_version}}</version>
+</dependency>

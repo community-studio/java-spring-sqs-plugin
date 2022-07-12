@@ -1,4 +1,4 @@
-
+<!--Gerado pela stackspot-->
 <dependency>
     <groupId>software.amazon.awssdk</groupId>
     <artifactId>sqs</artifactId>

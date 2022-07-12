@@ -62,6 +62,10 @@ hooks:
             snippet: snippets/lombok.xml
           when:
             not-exists-snippet: snippets/lombok.xml
+  - type: edit
+    trigger: after-render
+    path: pom.xml          
+    changes:
       - search:
           string: </dependencies>
           insert-before:

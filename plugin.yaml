@@ -41,7 +41,7 @@ inputs:
     name: sqs_produtor_class_name
     default: SqsPublisher
 
-computedInputs:   
+computed-inputs:   
   "pasta_configuracao_sqs": "src/main/java/{{inputs.pacote_configuracao_sqs | replace('.','/') | replace('-','')}}"
   "pasta_producer_sqs": "src/main/java/{{inputs.pacote_producer_sqs | replace('.','/') | replace('-','')}}"                       
   "pacote_configuracao_sqs": "{{inputs.pacote_configuracao_sqs | replace('-','')}}"

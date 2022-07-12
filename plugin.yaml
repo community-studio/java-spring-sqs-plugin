@@ -57,8 +57,8 @@ hooks:
     path: pom.xml          
     changes:
       - search:
-          string: </dependencies>
-          insert-before:
+          string: </dependency>
+          insert-after:
             snippet: snippets/lombok.xml
           when:
             not-exists-snippet: snippets/lombok.xml
@@ -67,8 +67,8 @@ hooks:
     path: pom.xml          
     changes:
       - search:
-          string: </dependencies>
-          insert-before:
+          string: </dependency>
+          insert-after:
             snippet: snippets/sqs.xml
           when:
             not-exists-snippet: snippets/sqs.xml

@@ -1,4 +1,4 @@
-package {{computed_inputs.pasta_producer_sqs}};
+package {{computed_inputs.pacote_producer_sqs}};
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

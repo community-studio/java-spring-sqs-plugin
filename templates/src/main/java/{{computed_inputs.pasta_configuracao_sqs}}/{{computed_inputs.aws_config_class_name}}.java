@@ -8,16 +8,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class {{computed_inputs.aws_config_class_name}} {
 
-    @Value(value = "${aws.region}")
-    private String region;
+    private String region = "sa-east-1";
 
-    @Value(value = "${aws.access-key}")
-    public String accessKey ;
+    public String accessKey = "teste";
 
-    @Value(value = "${aws.secret-key}")
-    private String secretKey;
+    private String secretKey = "teste";
 
-    @Value(value = "${aws.sqs.process-order-queue}")
-    private String processOrderQueueUrl ;
+    private String exampleQueueUrl = "http://localhost:4566/000000000000/exampleQueueUrl";
 
 }
